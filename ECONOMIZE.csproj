@@ -8,11 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Imagens\despesa.png" />
     <None Remove="Imagens\icon_principal.png" />
+    <None Remove="Imagens\receita.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Imagens\despesa.png" />
     <Resource Include="Imagens\icon_principal.png" />
+    <Resource Include="Imagens\receita.png" />
   </ItemGroup>
 
 </Project>

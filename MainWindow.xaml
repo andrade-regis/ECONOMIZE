@@ -9,7 +9,146 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent">
-    <Grid>
+
+    <Grid Name="grid_principal"
+          Height="720" 
+          Width="1275"
+          Background="Transparent">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#40445A"
+                    CornerRadius="12 0 0 12"
+                    Grid.Column="0">
+
+            <Grid Name="grid_principal_painelEsquerdo">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Label Style="{DynamicResource Label_título}"
+                       Content="ECONOMIZE"/>
+
+
+                <Image Stretch="Fill"
+                       Grid.Row="1"
+                       Margin="10"
+                       Source="/ECONOMIZE;component/Imagens/icon_principal.png"/>
+
+
+                <Border Name="Border_Inicio" 
+                        Style="{DynamicResource Border_menu}"
+                        Grid.Row="3">
+
+                    <Label Name="Label_Inicio"                          
+                           Style="{DynamicResource Label_menu}"
+                           Content="Inicio"/>
+
+                </Border>
+
+                <Border Name="Border_Extratos" 
+                        Style="{DynamicResource Border_menu}"
+                        Visibility="Collapsed"
+                        Grid.Row="4">
+
+                    <Label Name="Label_Extratos"                          
+                           Style="{DynamicResource Label_menu}"
+                           Content="Extratos"/>
+
+                </Border>
+
+                <Border Name="Border_Grupos" 
+                        Style="{DynamicResource Border_menu}"
+                        Visibility="Collapsed"
+                        Grid.Row="5">
+
+                    <Label Name="Label_Grupos"                          
+                           Style="{DynamicResource Label_menu}"
+                           Content="Grupos"/>
+
+                </Border>
+
+                <Border Name="Border_Ajustes" 
+                        Visibility="Collapsed"
+                        Style="{DynamicResource Border_menu}"
+                        Grid.Row="6">
+
+                    <Label Name="Label_Ajustes"                          
+                           Style="{DynamicResource Label_menu}"
+                           Content="Ajustes"/>
+
+                </Border>
+
+                <Border Name="Border_Sair" 
+                        Style="{DynamicResource Border_Menu_Sair}"
+                        Grid.Row="8">
+
+                    <Label Name="Label_Sair"                          
+                           Style="{DynamicResource Label_menu}"
+                           Content="Sair"/>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+
+        <Border Background="#25293E"
+                CornerRadius="0 12 12 0"
+                Grid.Column="1">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Grid Name="grid_principal_areaDeTrabalho"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Grid.Row="0">
+                </Grid>
+
+                <Grid Name="grid_principal_Rodapé"
+                      Grid.Row="1">
+
+                    <Border Style="{StaticResource Border_Botão_Purple}"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="0, 0, 20, 0">
+
+                        <Label Content="Adicionar Transação +"
+                       VerticalAlignment="Center"
+                       Margin="10, 0, 0, 0"
+                       Grid.Column="0"
+                       Style="{StaticResource Label_Botão_Purple}"
+                       HorizontalAlignment="Center"/>
+
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+        </Border>
+
 
     </Grid>
+
 </Window>

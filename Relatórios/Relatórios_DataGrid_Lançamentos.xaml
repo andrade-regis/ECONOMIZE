@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="ECONOMIZE.Relatórios.Relatórios_DataGrid_Lançamentos"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ECONOMIZE.Relatórios">
+
+    <StackPanel Name="StackPanel_principal"
+          Orientation="Vertical"
+          Background="#25293E"
+          Width="auto">
+
+    </StackPanel>
+
+</UserControl>
