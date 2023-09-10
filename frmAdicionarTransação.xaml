@@ -1,0 +1,253 @@
+﻿<UserControl x:Class="ECONOMIZE.frmAdicionarTransação"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ECONOMIZE">
+
+    <Grid>
+
+        <Border Style="{StaticResource Border_Background}"
+                Grid.ColumnSpan="2"
+                Background="gray"
+                Opacity="0.25"
+                Height="720" 
+                Width="1275">
+        </Border>
+
+        <Grid Name="Grid_Principal_Conteúdo">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Style="{StaticResource Border_Background}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="1035"
+                    Height="245"
+                    Grid.Column="1">
+
+                <Grid Name="Grid_Principal_Conteúdo_Transação">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Background="#555B78"
+                            CornerRadius="12 12 0 0">
+
+                        <Label Name="Label_Transação"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Foreground="#FFFFFF"
+                           Margin="10, 0, 0, 0"
+                           FontSize="18"
+                           Grid.Row="0"
+                           Content="Adicionar Transação"/>
+
+                    </Border>
+
+                    <Grid Grid.Row="1"
+                          Margin="20">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="55"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Name="Grid_Principal_Conteúdo_Transação_Tipo"
+                            Grid.Row="0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Name="Label_TipoDeTransação"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#DFDFDF"
+                                   FontSize="18"
+                                   Content="Tipo de Transação"/>
+
+                            <CheckBox Name="Check_Despesa"
+                                      Grid.Column="1"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      HorizontalContentAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Foreground="#DFDFDF"
+                                      FontSize="18"
+                                      Content="Despesa"/>
+
+                            <CheckBox Name="Check_Receita"
+                                      Grid.Column="2"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      HorizontalContentAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Foreground="#DFDFDF"
+                                      FontSize="18"
+                                      Content="Receita"/>
+
+                        </Grid>
+
+                        <Grid Name="Grid_Principal_Conteúdo_Transação_Dados"
+                            Grid.Row="1">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="480"/>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Name="Label_Data"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0"
+                                   VerticalAlignment="Top"
+                                   Foreground="#DFDFDF"
+                                   Opacity="60"
+                                   FontSize="18"
+                                   Content="Data"/>
+
+                            <TextBox Name="TextBox_Data"
+                                   HorizontalAlignment="Left"
+                                   Margin="17 0 0 0"
+                                   Width="140"
+                                   VerticalAlignment="Bottom"
+                                   Background="#DFDFDF"
+                                   Foreground="#40445A"
+                                   BorderThickness="0"
+                                   Text="12/02/0000"
+                                   FontSize="18"/>
+
+
+                            <Label Name="Label_Descrição"
+                                   HorizontalAlignment="Left"
+                                   Margin="11 0 0 0"
+                                   Grid.Column="1"
+                                   VerticalAlignment="Top"
+                                   Foreground="#DFDFDF"
+                                   Opacity="60"
+                                   FontSize="18"
+                                   Content="Descrição"/>
+
+                            <TextBox Name="TextBox_Descrição"
+                                   HorizontalAlignment="Left"
+                                   Margin="18 0 0 0"
+                                   Width="450"
+                                   Grid.Column="1"
+                                   VerticalAlignment="Bottom"
+                                   Background="#DFDFDF"
+                                   Foreground="#40445A"
+                                   BorderThickness="0"
+                                   Text="Fazenda de 10 hectares no sul de minas gerais"
+                                   FontSize="18"/>
+
+                            <Label Name="Label_Conta"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0"
+                                   VerticalAlignment="Top"
+                                   Foreground="#DFDFDF"
+                                   Opacity="60"
+                                   Grid.Column="2"
+                                   FontSize="18"
+                                   Content="Conta"/>
+
+                            <TextBox Name="TextBox_Conta"
+                                   HorizontalAlignment="Left"
+                                   Margin="17 0 0 0"
+                                   Width="140"
+                                   Grid.Column="2"
+                                   VerticalAlignment="Bottom"
+                                   Background="#DFDFDF"
+                                   Foreground="#40445A"
+                                   BorderThickness="0"
+                                   Text="Corrente"
+                                   FontSize="18"/>
+
+                            <Label Name="Label_Valor"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 0 0 0"
+                                   VerticalAlignment="Top"
+                                   Foreground="#DFDFDF"
+                                   Opacity="60"
+                                   Grid.Column="3"
+                                   FontSize="18"
+                                   Content="Valor"/>
+
+                            <TextBox Name="TextBox_Valor"
+                                   HorizontalAlignment="Left"
+                                   Margin="17 0 0 0"
+                                   Width="140"
+                                   Grid.Column="3"
+                                   VerticalAlignment="Bottom"
+                                   Background="#DFDFDF"
+                                   Foreground="#40445A"
+                                   BorderThickness="0"
+                                   Text="R$ 5.100,55"
+                                   FontSize="18"/>
+
+                        </Grid>
+
+                        <Grid Name="Grid_Principal_Conteúdo_Transação_Açôes"
+                            Grid.Row="2">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="480"/>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Style="{StaticResource Border_Botão_Purple}"
+                                    Grid.Column="2" 
+                                    Name="Button_Cancelar"
+                                    Background="#555B78"
+                                    Width="140"
+                                    Margin="5 20 0 0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center">
+
+                                <Label Content="Cancelar"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource Label_Botão_Purple}"
+                                       HorizontalAlignment="Center"/>
+
+                            </Border>
+                            
+                            <Border Style="{StaticResource Border_Botão_Purple}"
+                                    Grid.Column="3" 
+                                    Name="Button_Adicionar"
+                                    Width="140"
+                                    Margin="5 20 0 0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center">
+
+                                <Label Content="Adicionar"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource Label_Botão_Purple}"
+                                       HorizontalAlignment="Center"/>
+
+                            </Border>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+        </Grid>
+    </Grid>
+
+</UserControl>
