@@ -41,24 +41,26 @@
                Name="imagem_despesa"
                Margin="5"
                Source="/ECONOMIZE;component/Imagens/despesa.png"
-               Grid.Column="2">
+               Grid.Column="2"/>
 
-        </Image>
+
 
         <Label HorizontalAlignment="Center"
                VerticalAlignment="Center"
                FontFamily="Segoe UI"
                Foreground="#FFA7ABB7"
-               Name="lbl_Grupo"
+               Name="lbl_Conta"
                Grid.Column="3"
                FontSize="12"
                Content="Grupo"/>
 
-        <CheckBox Name="check_Consolidado"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  IsEnabled="False"
-                  Grid.Column="4"/>
+        <Image HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Name="imagem_remover"
+               Margin="5"
+               Source="/ECONOMIZE;component/Imagens/lixeira.png"
+               ToolTip="Remover transação"
+               Grid.Column="4"/>
 
     </Grid>
 

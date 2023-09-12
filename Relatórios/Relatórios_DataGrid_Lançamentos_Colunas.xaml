@@ -48,7 +48,7 @@
                Foreground="#FFFFFF"
                Grid.Column="3"
                FontSize="14"
-               Content="Grupo"/>
+               Content="Conta"/>
 
         <Label HorizontalAlignment="Center"
                VerticalAlignment="Center"
@@ -56,7 +56,7 @@
                Foreground="#FFFFFF"
                Grid.Column="4"
                FontSize="14"
-               Content="Consolidado"/>
+               Content="Remover"/>
 
     </Grid>
 

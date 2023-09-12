@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:ECONOMIZE">
 
     <Grid>
@@ -12,8 +13,7 @@
                 Background="gray"
                 Opacity="0.25"
                 Height="720" 
-                Width="1275">
-        </Border>
+                Width="1275"/>
 
         <Grid Name="Grid_Principal_Conteúdo">
 
@@ -29,7 +29,7 @@
                     Height="245"
                     Grid.Column="1">
 
-                <Grid Name="Grid_Principal_Conteúdo_Transação">
+                <Grid Name="Grid_Principal_Conteúdo_Transação" >
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
@@ -37,7 +37,7 @@
                     </Grid.RowDefinitions>
 
                     <Border Background="#555B78"
-                            CornerRadius="12 12 0 0">
+                            CornerRadius="12 12 0 0" >
 
                         <Label Name="Label_Transação"
                            HorizontalAlignment="Left"
@@ -46,12 +46,12 @@
                            Margin="10, 0, 0, 0"
                            FontSize="18"
                            Grid.Row="0"
-                           Content="Adicionar Transação"/>
+                           Content="Adicionar Transação" />
 
                     </Border>
 
                     <Grid Grid.Row="1"
-                          Margin="20">
+                          Margin="20" >
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40"/>
@@ -60,7 +60,7 @@
                         </Grid.RowDefinitions>
 
                         <Grid Name="Grid_Principal_Conteúdo_Transação_Tipo"
-                            Grid.Row="0">
+                            Grid.Row="0" >
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="170"/>
@@ -74,7 +74,7 @@
                                    VerticalAlignment="Center"
                                    Foreground="#DFDFDF"
                                    FontSize="18"
-                                   Content="Tipo de Transação"/>
+                                   Content="Tipo de Transação" />
 
                             <CheckBox Name="Check_Despesa"
                                       Grid.Column="1"
@@ -84,7 +84,7 @@
                                       VerticalContentAlignment="Center"
                                       Foreground="#DFDFDF"
                                       FontSize="18"
-                                      Content="Despesa"/>
+                                      Content="Despesa" />
 
                             <CheckBox Name="Check_Receita"
                                       Grid.Column="2"
@@ -94,12 +94,12 @@
                                       VerticalContentAlignment="Center"
                                       Foreground="#DFDFDF"
                                       FontSize="18"
-                                      Content="Receita"/>
+                                      Content="Receita" />
 
                         </Grid>
 
                         <Grid Name="Grid_Principal_Conteúdo_Transação_Dados"
-                            Grid.Row="1">
+                            Grid.Row="1" >
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="170"/>
@@ -116,18 +116,16 @@
                                    Foreground="#DFDFDF"
                                    Opacity="60"
                                    FontSize="18"
-                                   Content="Data"/>
+                                   Content="Data" />
 
-                            <TextBox Name="TextBox_Data"
-                                   HorizontalAlignment="Left"
-                                   Margin="17 0 0 0"
-                                   Width="140"
-                                   VerticalAlignment="Bottom"
-                                   Background="#DFDFDF"
-                                   Foreground="#40445A"
-                                   BorderThickness="0"
-                                   Text="12/02/0000"
-                                   FontSize="18"/>
+                            <xctk:MaskedTextBox Name="Maskex_Data"
+                                                ValueDataType="{x:Type xctk:DateTimeFormat}"
+                                                VerticalAlignment="Bottom"
+                                                Background="#DFDFDF"
+                                                Foreground="#40445A"
+                                                Mask="##/##/####"
+                                                FontSize="18"
+                                                Width="140"/>
 
 
                             <Label Name="Label_Descrição"
@@ -138,7 +136,7 @@
                                    Foreground="#DFDFDF"
                                    Opacity="60"
                                    FontSize="18"
-                                   Content="Descrição"/>
+                                   Content="Descrição" />
 
                             <TextBox Name="TextBox_Descrição"
                                    HorizontalAlignment="Left"
@@ -150,7 +148,7 @@
                                    Foreground="#40445A"
                                    BorderThickness="0"
                                    Text="Fazenda de 10 hectares no sul de minas gerais"
-                                   FontSize="18"/>
+                                   FontSize="18" />
 
                             <Label Name="Label_Conta"
                                    HorizontalAlignment="Left"
@@ -160,7 +158,7 @@
                                    Opacity="60"
                                    Grid.Column="2"
                                    FontSize="18"
-                                   Content="Conta"/>
+                                   Content="Conta" />
 
                             <TextBox Name="TextBox_Conta"
                                    HorizontalAlignment="Left"
@@ -172,7 +170,7 @@
                                    Foreground="#40445A"
                                    BorderThickness="0"
                                    Text="Corrente"
-                                   FontSize="18"/>
+                                   FontSize="18" />
 
                             <Label Name="Label_Valor"
                                    HorizontalAlignment="Left"
@@ -182,24 +180,22 @@
                                    Opacity="60"
                                    Grid.Column="3"
                                    FontSize="18"
-                                   Content="Valor"/>
+                                   Content="Valor" />
 
-                            <TextBox Name="TextBox_Valor"
-                                   HorizontalAlignment="Left"
-                                   Margin="17 0 0 0"
-                                   Width="140"
-                                   Grid.Column="3"
-                                   VerticalAlignment="Bottom"
-                                   Background="#DFDFDF"
-                                   Foreground="#40445A"
-                                   BorderThickness="0"
-                                   Text="R$ 5.100,55"
-                                   FontSize="18"/>
+                            <xctk:MaskedTextBox Name="Maskex_Valor"
+                                                ValueDataType="{x:Type DecimalAnimation}"
+                                                VerticalAlignment="Bottom"
+                                                Background="#DFDFDF"
+                                                Foreground="#40445A"
+                                                Grid.Column="3"
+                                                FontSize="18"
+                                                Mask="$ ###.###,##"
+                                                Width="140"/>
 
                         </Grid>
 
                         <Grid Name="Grid_Principal_Conteúdo_Transação_Açôes"
-                            Grid.Row="2">
+                            Grid.Row="2" >
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="170"/>
@@ -216,27 +212,27 @@
                                     Width="140"
                                     Margin="5 20 0 0"
                                     VerticalAlignment="Center"
-                                    HorizontalAlignment="Center">
+                                    HorizontalAlignment="Center" >
 
                                 <Label Content="Cancelar"
                                        VerticalAlignment="Center"
                                        Style="{StaticResource Label_Botão_Purple}"
-                                       HorizontalAlignment="Center"/>
+                                       HorizontalAlignment="Center" />
 
                             </Border>
-                            
+
                             <Border Style="{StaticResource Border_Botão_Purple}"
                                     Grid.Column="3" 
                                     Name="Button_Adicionar"
                                     Width="140"
                                     Margin="5 20 0 0"
                                     VerticalAlignment="Center"
-                                    HorizontalAlignment="Center">
+                                    HorizontalAlignment="Center" >
 
                                 <Label Content="Adicionar"
                                        VerticalAlignment="Center"
                                        Style="{StaticResource Label_Botão_Purple}"
-                                       HorizontalAlignment="Center"/>
+                                       HorizontalAlignment="Center" />
 
                             </Border>
 
