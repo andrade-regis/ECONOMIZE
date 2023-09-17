@@ -13,8 +13,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="88"/>
+            <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="88"/>
         </Grid.ColumnDefinitions>
 
@@ -38,7 +39,15 @@
                VerticalAlignment="Center"
                FontFamily="Segoe UI"
                Foreground="#FFFFFF"
-               Grid.Column="2"
+               Grid.Column="3"
+               FontSize="14"
+               Content="Valor"/>
+
+        <Label HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontFamily="Segoe UI"
+               Foreground="#FFFFFF"
+               Grid.Column="4"
                FontSize="14"
                Content="Tipo"/>
 
@@ -46,7 +55,7 @@
                VerticalAlignment="Center"
                FontFamily="Segoe UI"
                Foreground="#FFFFFF"
-               Grid.Column="3"
+               Grid.Column="2"
                FontSize="14"
                Content="Conta"/>
 
@@ -54,7 +63,7 @@
                VerticalAlignment="Center"
                FontFamily="Segoe UI"
                Foreground="#FFFFFF"
-               Grid.Column="4"
+               Grid.Column="5"
                FontSize="14"
                Content="Remover"/>
 

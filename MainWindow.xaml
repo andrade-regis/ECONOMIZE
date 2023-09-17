@@ -94,7 +94,7 @@
 
                 </Border>
 
-                <Border Name="Border_Sair" 
+                <Border Name="Border_Sair"
                         Style="{DynamicResource Border_Menu_Sair}"
                         Grid.Row="8">
 
