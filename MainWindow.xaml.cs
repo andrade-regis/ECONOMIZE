@@ -23,6 +23,27 @@ namespace ECONOMIZE
         public MainWindow()
         {
             InitializeComponent();
+
+            Border_Inicio_MouseDown(null, null);
+        }
+
+        private void Border_Sair_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Border_Inicio_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Label_Inicio.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#787CD2"));
+
+            frmInício frmInício = new frmInício();
+            grid_principal_areaDeTrabalho.Children.Add(frmInício);
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            frmAdicionarTransação frmAdicionarTransação = new frmAdicionarTransação();
+            frmAdicionarTransação.ShowDialog();
         }
     }
 }

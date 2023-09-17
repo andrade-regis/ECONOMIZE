@@ -18,7 +18,7 @@ namespace ECONOMIZE
     /// <summary>
     /// Interação lógica para frmAdicionarTransação.xam
     /// </summary>
-    public partial class frmAdicionarTransação : UserControl
+    public partial class frmAdicionarTransação : Window
     {
         public frmAdicionarTransação()
         {

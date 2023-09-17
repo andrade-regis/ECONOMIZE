@@ -20,9 +20,27 @@ namespace ECONOMIZE.Relatórios
     /// </summary>
     public partial class Relatórios_DataGrid_Lançamentos_Linhas : UserControl
     {
-        public Relatórios_DataGrid_Lançamentos_Linhas()
+        private Lançamento Lançamento;
+
+        internal Relatórios_DataGrid_Lançamentos_Linhas(Lançamento _lançamento)
         {
             InitializeComponent();
+
+            Lançamento = _lançamento;
+        }
+
+        private void preencherLançamento()
+        {
+            lbl_Data.Content = Lançamento.Data.ToShortDateString();
+            lbl_Descrição.Content = Lançamento.Descrição;
+            lbl_Conta.Content = Lançamento.Conta;
+            lbl_Valor.Content = String.Format("{0:C}", Lançamento.Valor);
+            
+            if(Lançamento.Tipo == "Receita")
+            {
+                BitmapImage bitmapImage = new BitmapImage(new Uri("receita.png", UriKind.RelativeOrAbsolute));
+                imagem_tipoDeTransação.Source = bitmapImage;
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace ECONOMIZE.Relatórios
     /// </summary>
     public partial class Relatórios_DataGrid_Lançamentos_Colunas : UserControl
     {
-        public Relatórios_DataGrid_Lançamentos_Colunas()
+        internal Relatórios_DataGrid_Lançamentos_Colunas()
         {
             InitializeComponent();
         }

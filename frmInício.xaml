@@ -40,7 +40,7 @@
                     <Border Background="#555B78"
                             CornerRadius="12 12 0 0">
 
-                        <Label Name="Label_Saldo"
+                        <Label Name="Lbl_Saldo"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Foreground="#FFFFFF"
@@ -52,7 +52,7 @@
                     </Border>
 
 
-                    <Label Name="Label_Saldo_Cifrão"
+                    <Label Name="Lbl_Saldo_Cifrão"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
@@ -63,7 +63,7 @@
                            Grid.Row="1"
                            Content="R$"/>
 
-                    <Label Name="Label_Saldo_Valor"
+                    <Label Name="Lbl_Saldo_Valor"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"
                            FontWeight="SemiBold"
@@ -72,7 +72,7 @@
                            Opacity="60"
                            FontSize="32"
                            Grid.Row="1"
-                           Content="0,00"/>
+                           Content="1.00.000,00"/>
 
                 </Grid>
 
@@ -93,7 +93,7 @@
                     <Border Background="#555B78"
                             CornerRadius="12 12 0 0">
 
-                        <Label Name="Label_Gastos"
+                        <Label Name="Lbl_Gastos"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Foreground="#FFFFFF"
@@ -105,7 +105,7 @@
                     </Border>
 
 
-                    <Label Name="Label_Gastos_Cifrão"
+                    <Label Name="Lbl_Gastos_Cifrão"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
@@ -116,7 +116,7 @@
                            Grid.Row="1"
                            Content="R$"/>
 
-                    <Label Name="Label_Gastos_Valor"
+                    <Label Name="Lbl_Gastos_Valor"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"
                            FontWeight="SemiBold"
@@ -146,7 +146,7 @@
                     <Border Background="#555B78"
                             CornerRadius="12 12 0 0">
 
-                        <Label Name="Label_Entradas"
+                        <Label Name="Lbl_Entradas"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Foreground="#FFFFFF"
@@ -157,7 +157,7 @@
 
                     </Border>
 
-                    <Label Name="Label_Entradas_Cifrão"
+                    <Label Name="Lbl_Entradas_Cifrão"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
@@ -168,7 +168,7 @@
                            Grid.Row="1"
                            Content="R$"/>
 
-                    <Label Name="Label_Entradas_Valor"
+                    <Label Name="Lbl_Entradas_Valor"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"
                            FontWeight="SemiBold"
@@ -198,7 +198,7 @@
                     <Border Background="#555B78"
                             CornerRadius="12 12 0 0">
 
-                        <Label Name="Label_Saídas"
+                        <Label Name="Lbl_Saídas"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Foreground="#FFFFFF"
@@ -209,7 +209,7 @@
 
                     </Border>
 
-                    <Label Name="Label_Saídas_Cifrão"
+                    <Label Name="Lbl_Saídas_Cifrão"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
@@ -220,7 +220,7 @@
                            Grid.Row="1"
                            Content="R$"/>
 
-                    <Label Name="Label_Saídas_Valor"
+                    <Label Name="Lbl_Saídas_Valor"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"
                            FontWeight="SemiBold"

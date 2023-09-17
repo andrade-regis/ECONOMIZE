@@ -48,12 +48,10 @@
 
         <Image HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Name="imagem_despesa"
+               Name="imagem_tipoDeTransação"
                Margin="5"
                Source="/ECONOMIZE;component/Imagens/despesa.png"
                Grid.Column="4"/>
-
-
 
         <Label HorizontalAlignment="Center"
                VerticalAlignment="Center"
