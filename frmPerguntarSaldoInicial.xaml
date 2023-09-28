@@ -1,0 +1,97 @@
+﻿<Window x:Class="ECONOMIZE.frmPerguntarSaldoInicial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:ECONOMIZE"   
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="frmPerguntarSaldoInicial"
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+
+    <Border Style="{StaticResource Border_Background}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="500"
+                    Height="145"
+                    Grid.Column="1">
+
+        <Grid Name="Grid_SaldoInicial" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Background="#555B78"
+                            CornerRadius="12 12 0 0" >
+
+                <Label Name="Label_Título"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Foreground="#FFFFFF"
+                           Margin="10, 0, 0, 0"
+                           FontSize="18"
+                           Grid.Row="0"
+                           Content="Informação" />
+
+            </Border>
+
+            <Grid Grid.Row="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Name="Grid_Principal_Conteúdo_Transação_Tipo"
+                            Grid.Row="0" >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="160"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Name="Label_InformarSaldo"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#DFDFDF"
+                                   FontSize="18"
+                                   Content="Informe o Saldo Inicial" />
+                    
+                    <TextBox Name="TextBox_Valor"
+                             BorderThickness="0"
+                             VerticalAlignment="Center"
+                             Foreground="#40445A"
+                             Grid.Column="1"
+                             FontSize="18"
+                             Width="110"/>
+
+                    <Border Style="{StaticResource Border_Botão_Purple}"
+                                    Grid.Column="3" 
+                                    Name="Button_Seguir"
+                                    Width="120"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center" MouseDown="Button_Seguir_MouseDown" >
+
+                        <Label Content="Seguir"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource Label_Botão_Purple}"
+                                       HorizontalAlignment="Center" />
+
+                    </Border>
+
+                </Grid>
+
+
+            </Grid>
+
+        </Grid>
+
+    </Border>
+
+</Window>

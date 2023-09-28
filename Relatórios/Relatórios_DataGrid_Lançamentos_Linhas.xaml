@@ -35,6 +35,7 @@
                Name="lbl_Descrição"
                Grid.Column="1"
                FontSize="12"
+               ToolTip="Pressione 2 vezes para editar"
                Content="Exemplo de Descrição de Despesa"/>
 
         <Label HorizontalAlignment="Center"
@@ -68,7 +69,7 @@
                Margin="5"
                Source="/ECONOMIZE;component/Imagens/lixeira.png"
                ToolTip="Remover transação"
-               Grid.Column="5"/>
+               Grid.Column="5" MouseDown="imagem_remover_MouseDown"/>
 
     </Grid>
 

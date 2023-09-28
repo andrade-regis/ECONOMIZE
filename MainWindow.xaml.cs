@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ECONOMIZE.Auxiliar;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,26 @@ namespace ECONOMIZE
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {        
         public MainWindow()
         {
+            if (!AbrirJanela_SaldoInicial())
+            {
+                this.Close();
+                return;
+            }                
+
             InitializeComponent();
 
             Border_Inicio_MouseDown(null, null);
+        }
+
+        private bool AbrirJanela_SaldoInicial()
+        {
+            frmPerguntarSaldoInicial frmPerguntarSaldoInicial = new frmPerguntarSaldoInicial();
+            frmPerguntarSaldoInicial.ShowDialog();
+
+            return frmPerguntarSaldoInicial.AcessoLiberado;            
         }
 
         private void Border_Sair_MouseDown(object sender, MouseButtonEventArgs e)
@@ -44,6 +59,11 @@ namespace ECONOMIZE
         {
             frmAdicionarTransação frmAdicionarTransação = new frmAdicionarTransação();
             frmAdicionarTransação.ShowDialog();
+
+            if(frmAdicionarTransação._Lançamento != null)
+            {
+                //Adicionar Lançamento na lista e atualizar a page de Início
+            }
         }
     }
 }

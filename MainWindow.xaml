@@ -63,14 +63,14 @@
 
                     </Border>
 
-                    <Border Name="Border_Extratos" 
+                    <Border Name="Border_Info" 
                         Style="{DynamicResource Border_menu}"
                         Visibility="Collapsed"
                         Grid.Row="4">
 
-                        <Label Name="Label_Extratos"                          
+                        <Label Name="Label_Info"                          
                            Style="{DynamicResource Label_menu}"
-                           Content="Extratos"/>
+                           Content="Info"/>
 
                     </Border>
 

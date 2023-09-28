@@ -56,12 +56,13 @@
                     </Border>
 
                     <Grid Grid.Row="1"
-                          Margin="20" >
+                          Margin="20 20 20 0" >
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="65"/>
-                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
                         <Grid Name="Grid_Principal_Conteúdo_Transação_Tipo"
@@ -89,7 +90,7 @@
                                       VerticalContentAlignment="Center"
                                       Foreground="#DFDFDF"
                                       FontSize="18"
-                                      Content="Despesa" />
+                                      Content="Despesa" Checked="Check_Despesa_Checked" />
 
                             <CheckBox Name="Check_Receita"
                                       Grid.Column="2"
@@ -97,6 +98,7 @@
                                       VerticalAlignment="Center"
                                       HorizontalContentAlignment="Center"
                                       VerticalContentAlignment="Center"
+                                      Checked="Check_Receita_Checked"
                                       Foreground="#DFDFDF"
                                       FontSize="18"
                                       Content="Receita" />
@@ -123,11 +125,11 @@
                                    FontSize="18"
                                    Content="Data" />
 
-                            <xctk:MaskedTextBox Name="Maskex_Data"
+                            <xctk:MaskedTextBox Name="Masked_Data"
                                                 ValueDataType="{x:Type xctk:DateTimeFormat}"
                                                 VerticalAlignment="Bottom"
-                                                Background="#DFDFDF"
                                                 Foreground="#40445A"
+                                                BorderThickness="0"
                                                 Mask="##/##/####"
                                                 FontSize="18"
                                                 Width="140"/>
@@ -149,10 +151,8 @@
                                    Width="450"
                                    Grid.Column="1"
                                    VerticalAlignment="Bottom"
-                                   Background="#DFDFDF"
                                    Foreground="#40445A"
                                    BorderThickness="0"
-                                   Text="Fazenda de 10 hectares no sul de minas gerais"
                                    FontSize="18" />
 
                             <Label Name="Label_Conta"
@@ -171,10 +171,9 @@
                                    Width="140"
                                    Grid.Column="2"
                                    VerticalAlignment="Bottom"
-                                   Background="#DFDFDF"
                                    Foreground="#40445A"
                                    BorderThickness="0"
-                                   Text="Corrente"
+                                   Text=""
                                    FontSize="18" />
 
                             <Label Name="Label_Valor"
@@ -187,10 +186,9 @@
                                    FontSize="18"
                                    Content="Valor" />
 
-                            <xctk:MaskedTextBox Name="Maskex_Valor"
+                            <xctk:MaskedTextBox Name="Masked_Valor"
                                                 ValueDataType="{x:Type DecimalAnimation}"
                                                 VerticalAlignment="Bottom"
-                                                Background="#DFDFDF"
                                                 Foreground="#40445A"
                                                 Grid.Column="3"
                                                 FontSize="18"
@@ -200,22 +198,22 @@
                         </Grid>
 
                         <Grid Name="Grid_Principal_Conteúdo_Transação_Açôes"
-                            Grid.Row="2" >
+                            Grid.Row="3" >
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="170"/>
                                 <ColumnDefinition Width="480"/>
-                                <ColumnDefinition Width="170"/>
-                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
                             <Border Style="{StaticResource Border_Botão_Purple}"
                                     Grid.Column="2" 
                                     Name="Button_Cancelar"
+                                    MouseDown="Button_Cancelar_MouseDown"
                                     Background="#555B78"
-                                    Width="140"
-                                    Margin="5 20 0 0"
+                                    Width="120"
+                                    Margin="5 10 0 0"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center" >
 
@@ -229,12 +227,14 @@
                             <Border Style="{StaticResource Border_Botão_Purple}"
                                     Grid.Column="3" 
                                     Name="Button_Adicionar"
-                                    Width="140"
-                                    Margin="5 20 0 0"
+                                    
+                                    Width="120"
+                                    Margin="5 10 0 0"
                                     VerticalAlignment="Center"
-                                    HorizontalAlignment="Center" >
+                                    HorizontalAlignment="Center" MouseDown="Button_Adicionar_MouseDown" >
 
-                                <Label Content="Adicionar"
+                                <Label Name="Button_Content_Adicionar" 
+                                       Content="Adicionar"
                                        VerticalAlignment="Center"
                                        Style="{StaticResource Label_Botão_Purple}"
                                        HorizontalAlignment="Center" />

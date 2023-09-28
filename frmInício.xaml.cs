@@ -1,19 +1,8 @@
-﻿using ECONOMIZE.Relatórios;
+﻿using ECONOMIZE.Auxiliar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Printing;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ECONOMIZE
 {
@@ -22,13 +11,9 @@ namespace ECONOMIZE
     /// </summary>
     public partial class frmInício : UserControl
     {
-        private List<Lançamento> lançamentos;
-
         public frmInício()
         {
             InitializeComponent();
-
-            lançamentos = new List<Lançamento>();
 
             Atualizar_DadosPorLançamentos();
         }
@@ -43,54 +28,40 @@ namespace ECONOMIZE
 
         private void Atualizar_Saldo()
         {
-            decimal valorSaldo = 0;
+            decimal valorTransações = Informações.HistóricosDeLançamentos
+                                      .Where(lan => lan.Data <= DateTime.Now.Date)
+                                      .ToList().Sum(x => x.Valor);
 
-            for (int contador = 0; contador < lançamentos.Count; contador++)
-            {
-                if (lançamentos[contador].Data.Date <= DateTime.Now.Date)
-                {
-                    valorSaldo += lançamentos[contador].Valor;
-                }
-            }
+            Informações.SaldoAtual = Informações.SaldoInicial + valorTransações;
 
-            string valorFormatado = String.Format("{0:C}", valorSaldo).Replace("R$", "");
+            string valorFormatado = String.Format("{0:C}", Informações.SaldoAtual).Replace("R$", "");
 
-            FormatarValores(ref Lbl_Saldo_Valor, valorFormatado);
+            LimitarValores(ref Lbl_Saldo_Valor, valorFormatado);
         }
 
         private void Atualizar_Gastos()
         {
-            decimal valorGasto = 0;
-
-            for (int contador = 0; contador < lançamentos.Count; contador++)
-            {
-                if (lançamentos[contador].Data.Date <= DateTime.Now.Date
-                    && lançamentos[contador].Tipo == "Despesa")
-                {
-                    valorGasto += lançamentos[contador].Valor;
-                }
-            }
+            decimal valorGasto = Informações.HistóricosDeLançamentos
+                         .Where(lan => lan.Data <= DateTime.Now.Date 
+                         && lan.Tipo == "Despesa")
+                         .ToList().Sum(x => x.Valor);
 
             string valorFormatado = String.Format("{0:C}", valorGasto).Replace("R$", "");
 
-            FormatarValores(ref Lbl_Gastos_Valor, valorFormatado);
+            LimitarValores(ref Lbl_Gastos_Valor, valorFormatado);
         }
 
         private void Atualizar_Entradas()
         {
             decimal valorEntrada = 0;
 
-            for (int contador = 0; contador < lançamentos.Count; contador++)
-            {
-                if (lançamentos[contador].Tipo == "Receita")
-                {
-                    valorEntrada += lançamentos[contador].Valor;
-                }
-            }
+            valorEntrada = Informações.HistóricosDeLançamentos
+                         .Where(lan => lan.Tipo == "Receita")
+                         .ToList().Sum(x => x.Valor);        
 
             string valorFormatado = String.Format("{0:C}", valorEntrada).Replace("R$", "");
 
-            FormatarValores(ref Lbl_Entradas_Valor, valorFormatado);
+            LimitarValores(ref Lbl_Entradas_Valor, valorFormatado);
 
         }
 
@@ -98,20 +69,16 @@ namespace ECONOMIZE
         {
             decimal valorSaídas = 0;
 
-            for (int contador = 0; contador < lançamentos.Count; contador++)
-            {
-                if (lançamentos[contador].Tipo == "Despesa")
-                {
-                    valorSaídas += lançamentos[contador].Valor;
-                }
-            }
+            valorSaídas = Informações.HistóricosDeLançamentos
+                         .Where(lan => lan.Tipo == "Despesa")
+                         .ToList().Sum(x => x.Valor);
 
             string valorFormatado = String.Format("{0:C}", valorSaídas).Replace("R$", "");
 
-            FormatarValores(ref Lbl_Saídas_Valor, valorFormatado);
+            LimitarValores(ref Lbl_Saídas_Valor, valorFormatado);
         }
 
-        private void FormatarValores(ref Label LabelValor, string valorFormatado)
+        private void LimitarValores(ref Label LabelValor, string valorFormatado)
         {
             if (valorFormatado.Length > 11)
             {
