@@ -60,9 +60,10 @@ namespace ECONOMIZE
             frmAdicionarTransação frmAdicionarTransação = new frmAdicionarTransação();
             frmAdicionarTransação.ShowDialog();
 
-            if(frmAdicionarTransação._Lançamento != null)
+            if(frmAdicionarTransação._lançamento != null)
             {
-                //Adicionar Lançamento na lista e atualizar a page de Início
+                frmInício Ínicio = (frmInício)grid_principal_areaDeTrabalho.Children[0];
+                Ínicio.Atualizar_DataGrid();
             }
         }
     }

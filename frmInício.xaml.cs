@@ -11,11 +11,20 @@ namespace ECONOMIZE
     /// </summary>
     public partial class frmInício : UserControl
     {
+        public Relatórios.Relatórios_DataGrid_Lançamentos Relatório;
+
         public frmInício()
         {
             InitializeComponent();
 
             Atualizar_DadosPorLançamentos();
+
+            Gerar_RelatórioTransações();
+        }
+
+        public void Atualizar_DataGrid()
+        {
+            Relatório.Refresh();
         }
 
         private void Atualizar_DadosPorLançamentos()
@@ -89,6 +98,12 @@ namespace ECONOMIZE
             {
                 LabelValor.Content = valorFormatado;
             }
+        }
+
+        private void Gerar_RelatórioTransações()
+        {
+            Relatório = new Relatórios.Relatórios_DataGrid_Lançamentos();
+            StackPanel_ConteúdoLançamentos.Children.Add(Relatório);
         }
     }
 }

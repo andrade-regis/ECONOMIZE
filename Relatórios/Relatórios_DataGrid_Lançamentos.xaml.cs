@@ -16,7 +16,7 @@ namespace ECONOMIZE.Relatórios
             Refresh();
         }
 
-        private void Refresh()
+        public void Refresh()
         {
             StackPanel_principal.Children.Clear();
 

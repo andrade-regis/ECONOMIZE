@@ -1,6 +1,8 @@
 ﻿using ECONOMIZE.Auxiliar;
+using System;
 using System.Windows;
 using System.Windows.Input;
+using Xceed.Wpf.Toolkit.Panels;
 
 namespace ECONOMIZE
 {
@@ -9,14 +11,15 @@ namespace ECONOMIZE
     /// </summary>
     public partial class frmAdicionarTransação : Window
     {
-        public Lançamento _Lançamento;
+        public Lançamento _lançamento;
+
         private bool Adicionar = false;
 
         public frmAdicionarTransação()
         {
             InitializeComponent();
 
-            _Lançamento = new Lançamento();
+            Check_Despesa.IsChecked = true;
             Adicionar = true;
         }
 
@@ -24,21 +27,22 @@ namespace ECONOMIZE
         {
             InitializeComponent();
 
-            _Lançamento = Lançamento;
+            _lançamento = Lançamento;
 
             Button_Content_Adicionar.Content = "Atualizar";
+
 
             PreencherComponentes();
         }
 
         private void PreencherComponentes()
         {
-            Masked_Data.Text = _Lançamento.Data.ToShortDateString();
-            TextBox_Descrição.Text = _Lançamento.Descrição;
-            TextBox_Conta.Text = _Lançamento.Conta;
-            Masked_Valor.Text = _Lançamento.Valor.ToString("#,##");
-            
-            if(_Lançamento.Tipo == "Receita")
+            Masked_Data.Text = _lançamento.Data.ToShortDateString();
+            TextBox_Descrição.Text = _lançamento.Descrição;
+            TextBox_Conta.Text = _lançamento.Conta;
+            Masked_Valor.Text = _lançamento.Valor.ToString("#,##");
+
+            if (_lançamento.Tipo == "Receita")
             {
                 Check_Receita.IsChecked = true;
             }
@@ -68,13 +72,145 @@ namespace ECONOMIZE
 
         private void Button_Cancelar_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            _Lançamento = null;
             this.Close();
         }
 
         private void Button_Adicionar_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            if (!Validar())
+                return;
+
+            if (_lançamento == null)
+            {
+                _lançamento = new Lançamento();
+                Informações.HistóricosDeLançamentos.Add(_lançamento);
+            }
+
+            _lançamento.Data = DateTime.Parse(Masked_Data.Text);
+            _lançamento.Descrição = TextBox_Descrição.Text.Trim();
+            _lançamento.Conta = TextBox_Conta.Text.Trim();
+            _lançamento.Tipo = (bool)Check_Despesa.IsChecked ? "Despesa" : "Receita";
+            if (_lançamento.Tipo == "Despesa")
+            {
+                Masked_Valor.Text = "-" + Masked_Valor.Text;
+            }
+
+            _lançamento.Valor = Decimal.Parse(Masked_Valor.Text.Trim().
+                                              Replace("R$", string.Empty).
+                                              Replace("_", string.Empty));
+
+            _lançamento.Visivel = true;
+
+            this.Close();
+        }
+
+        private bool Validar()
+        {
+            #region Validar Data
+
+            string data = Masked_Data.Text.Replace("_", "");
+
+            if (data.Length != 10)
+            {
+                MessageBox.Show("A Data informada não é válida.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                Masked_Data.Focus();
+                return false;
+            }
+
+            #endregion
+
+            #region Validar Descrição
+
+            string descrição = TextBox_Descrição.Text;
+
+            if (descrição.Trim().Length == 0 && descrição.Replace(" ", string.Empty).Length == 0)
+            {
+                MessageBox.Show("Obrigatório informar descrição de transação.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                TextBox_Descrição.Focus();
+                return false;
+            }
+
+            #endregion
+
+            #region Validar Conta
+
+            string conta = TextBox_Conta.Text;
+
+            if (conta.Trim().Length == 0 && conta.Replace(" ", string.Empty).Length == 0)
+            {
+                MessageBox.Show("Obrigatório informar descrição de transação.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                TextBox_Conta.Focus();
+                return false;
+            }
+
+            #endregion
+
+            #region Validar Valor
+
+            string valor = Masked_Valor.Text.Trim().Replace("R$", string.Empty).Replace("_", string.Empty);
+
+            if (valor.Length == 0)
+            {
+                MessageBox.Show("É obrigatório informar valor.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                Masked_Valor.Focus();
+                return false;
+            }
+
+            int virgulas = 0;
+
+            foreach (char caracter in valor)
+            {
+
+                if (caracter == ',')
+                {
+                    virgulas++;
+                }
+
+                if (virgulas > 1)
+                {
+                    MessageBox.Show("A virgula só pode ser usada 1 vez.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                    Masked_Valor.Focus();
+                    return false;
+                }
+
+                if (!(char.IsDigit(caracter)) && caracter != ',')
+                {
+                    MessageBox.Show($"O caracter informado '{caracter}' não é permitido", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                    Masked_Valor.Focus();
+                    return false;
+                }
+            }
+
+            try
+            {
+                decimal valorConvertido = decimal.Parse(valor);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Valor informado inválido.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                Masked_Valor.Focus();
+                return false;
+            }
+
+            #endregion
+
+            #region Validar Tipo de Transação
+
+            if (Check_Despesa.IsChecked == null && Check_Receita.IsChecked == null)
+            {
+                MessageBox.Show("Obrigatório informar 'Tipo de Despesa'.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                return false;
+            }
+
+            if (!(bool)Check_Despesa.IsChecked && !(bool)Check_Receita.IsChecked)
+            {
+                MessageBox.Show("Obrigatório definir 'Tipo de Despesa'.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                return false;
+            }
+
+            #endregion
+
+            return true;
         }
     }
 }

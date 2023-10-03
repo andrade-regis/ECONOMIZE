@@ -7,7 +7,7 @@
 
     <StackPanel Name="StackPanel_principal"
           Orientation="Vertical"
-          Background="#25293E"
+          Background="Transparent"
           Width="auto">
 
     </StackPanel>

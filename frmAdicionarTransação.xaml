@@ -184,15 +184,13 @@
                                    Opacity="60"
                                    Grid.Column="3"
                                    FontSize="18"
-                                   Content="Valor" />
+                                   Content="Valor R$"/>
 
                             <xctk:MaskedTextBox Name="Masked_Valor"
-                                                ValueDataType="{x:Type DecimalAnimation}"
                                                 VerticalAlignment="Bottom"
                                                 Foreground="#40445A"
                                                 Grid.Column="3"
                                                 FontSize="18"
-                                                Mask="$ ###.###,##"
                                                 Width="140"/>
 
                         </Grid>
