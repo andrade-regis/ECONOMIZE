@@ -13,11 +13,14 @@ namespace ECONOMIZE.Relatórios
     {
         public Lançamento Lançamento;
 
-        internal Relatórios_DataGrid_Lançamentos_Linhas(Lançamento _lançamento)
+        private Relatórios_DataGrid_Lançamentos DataGrid_Lançamentos;
+
+        internal Relatórios_DataGrid_Lançamentos_Linhas(Lançamento _lançamento, Relatórios_DataGrid_Lançamentos relatórios_DataGrid_Lançamentos)
         {
             InitializeComponent();
 
             Lançamento = _lançamento;
+            DataGrid_Lançamentos = relatórios_DataGrid_Lançamentos;
 
             preencherLançamento();
         }
@@ -26,10 +29,10 @@ namespace ECONOMIZE.Relatórios
         {
             string valor = Abreviar_Valor(String.Format("{0:C}", Lançamento.Valor), out string toolTipValor);
             string descrição = Abreviar_Descrição(Lançamento.Descrição, out string tooltipDescrição);
-            string conta = Abreviar_Conta(Lançamento.Conta, out string toolTipConta);            
-           
+            string conta = Abreviar_Conta(Lançamento.Conta, out string toolTipConta);
+
             lbl_Descrição.Content = descrição == string.Empty ? "----" : descrição;
-            if(tooltipDescrição != string.Empty)
+            if (tooltipDescrição != string.Empty)
             {
                 lbl_Descrição.ToolTip = tooltipDescrição;
             }
@@ -40,9 +43,9 @@ namespace ECONOMIZE.Relatórios
                 lbl_Conta.ToolTip = toolTipConta;
             }
 
-            lbl_Valor.Content = valor;
+            lbl_Valor.Content = valor.Replace(".", string.Empty).Replace(",", string.Empty);
 
-            if(toolTipValor != string.Empty)
+            if (toolTipValor != string.Empty)
             {
                 lbl_Valor.ToolTip = toolTipValor;
             }
@@ -60,7 +63,7 @@ namespace ECONOMIZE.Relatórios
         {
             toolTip = string.Empty;
 
-            if(descrição.Length > 80)
+            if (descrição.Length > 80)
             {
                 ToolTip = descrição;
                 descrição = descrição.Substring(0, 75) + "...";
@@ -97,11 +100,19 @@ namespace ECONOMIZE.Relatórios
 
         private void imagem_remover_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if((MessageBox.Show("Deseja remover a transação selecionada?","REMOVER TRANSAÇÃO",MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes))
+            if ((MessageBox.Show("Deseja remover a transação selecionada?", "REMOVER TRANSAÇÃO", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes))
             {
-                Lançamento.Visivel = false;
-                this.Grid_principal.Visibility = Visibility.Collapsed;
+                Informações.HistóricosDeLançamentos.Remove(Lançamento);
+                DataGrid_Lançamentos.Refresh();
+                DataGrid_Lançamentos.StackPanel_principal.Children.Remove(this);
             }
+        }
+
+        private void lbl_Descrição_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            frmAdicionarTransação frmAdicionarTransação = new frmAdicionarTransação(Lançamento);
+            frmAdicionarTransação.ShowDialog();
+            DataGrid_Lançamentos.Refresh();
         }
     }
 }

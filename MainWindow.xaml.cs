@@ -23,23 +23,9 @@ namespace ECONOMIZE
     {        
         public MainWindow()
         {
-            if (!AbrirJanela_SaldoInicial())
-            {
-                this.Close();
-                return;
-            }                
-
             InitializeComponent();
 
             Border_Inicio_MouseDown(null, null);
-        }
-
-        private bool AbrirJanela_SaldoInicial()
-        {
-            frmPerguntarSaldoInicial frmPerguntarSaldoInicial = new frmPerguntarSaldoInicial();
-            frmPerguntarSaldoInicial.ShowDialog();
-
-            return frmPerguntarSaldoInicial.AcessoLiberado;            
         }
 
         private void Border_Sair_MouseDown(object sender, MouseButtonEventArgs e)

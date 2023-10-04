@@ -1,0 +1,87 @@
+﻿<Window x:Class="ECONOMIZE.Info"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ECONOMIZE"
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="Info">
+
+    <Border Style="{StaticResource Border_Background}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Column="1">
+
+        <Grid Height="371" Width="400">
+
+            <Border Style="{StaticResource Border_Botão_Purple}" 
+                    Name="Button_Seguir"
+                    Width="120"
+                    MouseDown="Button_Click"
+                    Height="35" Margin="230,158,50,177" >
+
+                <Label Content="Seguir"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource Label_Botão_Purple}"
+                       HorizontalAlignment="Center" />
+
+            </Border>
+
+            <Border Style="{StaticResource Border_Botão_Purple}" 
+                    Name="Button_ComoUsar"
+                    Width="120"
+                    MouseDown="Button_Click"
+                    Height="35" Margin="57,158,223,177" >
+
+                <Label Content="Como usar"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource Label_Botão_Purple}"
+                       HorizontalAlignment="Center" />
+
+            </Border>
+
+            <Border Style="{StaticResource Border_Botão_Purple}" 
+                    Name="Button_Sair"
+                    MouseDown="Button_Click"
+                    Width="120"
+                    Height="35" Margin="143,314,137,22" >
+
+                <Label Content="Sair"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource Label_Botão_Purple}"
+                       HorizontalAlignment="Center" />
+
+            </Border>
+
+            <TextBlock Text="Veja como é simples usar o ECONOMIZE" 
+                       Margin="15,10,158,267"
+                       FontFamily="Segoe UI"
+                       FontWeight="Bold"
+                       Foreground="White"/>
+
+            <TextBlock Text="Passo 1:    Informe o saldo em conta no dia 01 na próxima tela." 
+                       Margin="15,60,10,290"
+                       FontFamily="Segoe UI"
+                       Foreground="White"/>
+
+            <TextBlock Text="Passo 2:    Insira suas despesas e receitas através do botão 'Adicionar Transação' no canto inferior da interface." 
+                       TextWrapping="Wrap"
+                       Margin="15,86,10,249"
+                       FontFamily="Segoe UI"
+                       Foreground="White"/>
+
+            <TextBlock Text="Observação:                                                                                            
+                       O projeto em questão se trata de uma DEMO. Devido a isso os dados não são armazenados, e as transações são limitadas ao mês atual" 
+                       TextWrapping="Wrap"
+                       Margin="19,236,5,79"
+                       FontFamily="Segoe UI"
+                       Foreground="White"/>
+
+        </Grid>
+
+    </Border>
+</Window>

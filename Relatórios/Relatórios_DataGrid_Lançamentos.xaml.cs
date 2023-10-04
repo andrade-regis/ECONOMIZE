@@ -1,6 +1,8 @@
 ﻿using System;
 using ECONOMIZE.Auxiliar;
 using System.Windows.Controls;
+using System.Windows;
+using System.Linq;
 
 namespace ECONOMIZE.Relatórios
 {
@@ -9,9 +11,13 @@ namespace ECONOMIZE.Relatórios
     /// </summary>
     public partial class Relatórios_DataGrid_Lançamentos : UserControl
     {
-        public Relatórios_DataGrid_Lançamentos()
+        frmInício frmInício;
+
+        public Relatórios_DataGrid_Lançamentos(frmInício frmInício)
         {
             InitializeComponent();
+
+            this.frmInício = frmInício;
 
             Refresh();
         }
@@ -23,14 +29,14 @@ namespace ECONOMIZE.Relatórios
             Relatórios_DataGrid_Lançamentos_Colunas Colunas = new Relatórios_DataGrid_Lançamentos_Colunas();
             StackPanel_principal.Children.Add(Colunas);
 
-            foreach(Lançamento lançamento in Informações.HistóricosDeLançamentos)
+            foreach (Lançamento lançamento in Informações.HistóricosDeLançamentos)
             {
-                if (lançamento.Visivel)
-                {
-                    Relatórios_DataGrid_Lançamentos_Linhas Linha = new Relatórios_DataGrid_Lançamentos_Linhas(lançamento);
-                    StackPanel_principal.Children.Add(Linha);
-                }
+                Relatórios_DataGrid_Lançamentos_Linhas Linha = new Relatórios_DataGrid_Lançamentos_Linhas(lançamento, this);
+                StackPanel_principal.Children.Add(Linha);
+
             }
+
+            frmInício.Atualizar_DadosPorLançamentos();
         }
     }
 }

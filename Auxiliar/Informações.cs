@@ -15,32 +15,26 @@ namespace ECONOMIZE.Auxiliar
 
     public class Lançamento
     {
-        public int Indexador {  get; set; }
         public DateTime Data { get; set; }
         public string Descrição { get; set; }
         public string Conta { get; set; }
         public Decimal Valor { get; set; }
         public string Tipo { get; set; }
-        public bool Visivel { get; set; }
 
         public Lançamento()
         {
-            Indexador = 1;
             Descrição = string.Empty;
             Conta = string.Empty;
             Valor = 0;
             Tipo = string.Empty;
-            Visivel = true;
         }
 
         ~Lançamento()
         {
-            Indexador = 1;
             Descrição = string.Empty;
             Conta = string.Empty;
             Valor = 0;
             Tipo = string.Empty;
-            Visivel = true;
         }
     }
 }

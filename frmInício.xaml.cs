@@ -27,7 +27,7 @@ namespace ECONOMIZE
             Relatório.Refresh();
         }
 
-        private void Atualizar_DadosPorLançamentos()
+        internal void Atualizar_DadosPorLançamentos()
         {
             Atualizar_Saldo();
             Atualizar_Gastos();
@@ -102,7 +102,7 @@ namespace ECONOMIZE
 
         private void Gerar_RelatórioTransações()
         {
-            Relatório = new Relatórios.Relatórios_DataGrid_Lançamentos();
+            Relatório = new Relatórios.Relatórios_DataGrid_Lançamentos(this);
             StackPanel_ConteúdoLançamentos.Children.Add(Relatório);
         }
     }

@@ -99,8 +99,6 @@ namespace ECONOMIZE
                                               Replace("R$", string.Empty).
                                               Replace("_", string.Empty));
 
-            _lançamento.Visivel = true;
-
             this.Close();
         }
 
@@ -114,6 +112,25 @@ namespace ECONOMIZE
             {
                 MessageBox.Show("A Data informada não é válida.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
                 Masked_Data.Focus();
+                return false;
+            }
+
+            try
+            {
+                DateTime DataTransação  = DateTime.Parse(data);
+                DateTime DataAtual = DateTime.Now;
+
+                if(DataTransação.Month != DataAtual.Month)
+                {
+                    MessageBox.Show("Data informada deve ser referente ao mês atual.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                    Masked_Valor.Focus();
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Valor informado inválido.", Label_Transação.Content.ToString(), MessageBoxButton.OK, MessageBoxImage.Stop);
+                Masked_Valor.Focus();
                 return false;
             }
 
