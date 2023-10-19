@@ -34,7 +34,7 @@ git clone https://github.com/andrade-regis/ECONOMIZE
 
 2. Navegue até o diretório do projeto:
 
-cd E:\Público\ECONOMIZE\bin\Release\net7.0-windows
+cd ECONOMIZE\bin\Release\net7.0-windows
 
 3. Abra o arquivo `ECONOMIZE.exe`.
 
