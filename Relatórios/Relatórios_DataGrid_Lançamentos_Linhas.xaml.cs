@@ -43,7 +43,7 @@ namespace ECONOMIZE.Relatórios
                 lbl_Conta.ToolTip = toolTipConta;
             }
 
-            lbl_Valor.Content = valor.Replace(".", string.Empty).Replace(",", string.Empty);
+            lbl_Valor.Content = valor;
 
             if (toolTipValor != string.Empty)
             {

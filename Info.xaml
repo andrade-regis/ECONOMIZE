@@ -32,6 +32,7 @@
             </Border>
 
             <Border Style="{StaticResource Border_Botão_Purple}" 
+                    IsEnabled="False"
                     Name="Button_ComoUsar"
                     Width="120"
                     MouseDown="Button_Click"

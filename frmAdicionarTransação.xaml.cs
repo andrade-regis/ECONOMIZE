@@ -40,7 +40,7 @@ namespace ECONOMIZE
             Masked_Data.Text = _lançamento.Data.ToShortDateString();
             TextBox_Descrição.Text = _lançamento.Descrição;
             TextBox_Conta.Text = _lançamento.Conta;
-            Masked_Valor.Text = _lançamento.Valor.ToString("#,##");
+            Masked_Valor.Text = _lançamento.Valor.ToString().Replace("-", string.Empty).Replace(".", string.Empty);
 
             if (_lançamento.Tipo == "Receita")
             {
