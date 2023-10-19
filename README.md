@@ -1,6 +1,6 @@
 # ECONOMIZE
 
-![Tela Principal](link-para-logo.png)
+![Tela Principal](capturas_tela/tela_principal.png)
 
 ## Descrição
 
